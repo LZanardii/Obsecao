@@ -1,10 +1,13 @@
 package br.com.unisinos.obsecao.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Endereco")
 public class EnderecoModel {
@@ -13,11 +16,15 @@ public class EnderecoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String rua;
 
+    @NonNull
     private String cidade;
 
+    @NonNull
     private String logradouro;
 
+    @NonNull
     private String cep;
 }

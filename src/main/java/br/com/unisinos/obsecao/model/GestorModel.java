@@ -1,13 +1,11 @@
 package br.com.unisinos.obsecao.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
@@ -33,6 +31,4 @@ public class GestorModel {
     private EnderecoModel endereco;
 
     private boolean voluntario;
-
-
 }

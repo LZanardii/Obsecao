@@ -1,12 +1,15 @@
 package br.com.unisinos.obsecao.model;
 
-import lombok.Data;
+import lombok.*;
+
 import javax.persistence.Id;
 
 import javax.persistence.*;
-import java.util.List;
 
-@Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "Ong")
 public class OngModel {
@@ -15,13 +18,14 @@ public class OngModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String nome;
 
+    @NonNull
     @OneToOne
     private EnderecoModel endereco;
 
+    @NonNull
     @OneToOne
     private GestorModel idGestor;
-
-
 }
