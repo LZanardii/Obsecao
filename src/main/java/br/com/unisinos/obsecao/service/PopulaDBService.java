@@ -54,7 +54,7 @@ public class PopulaDBService {
 
         OngModel Ong1 = new OngModel("Ong Do Leo", EnderecoOng1, Gestor1);
         OngModel Ong2 = new OngModel("Ong do Igor", EnderecoOng2, Gestor2);
-        OngModel Ong3 = new OngModel("Ong Do Leo", EnderecoOng3, Gestor1);
+        OngModel Ong3 = new OngModel("Ong Do Pedro", EnderecoOng3, Gestor1);
 
         ongRepository.save(Ong1);
         ongRepository.save(Ong2);
@@ -64,21 +64,33 @@ public class PopulaDBService {
         listaGestor1.add(Ong3);
         listaGestor2.add(Ong2);
 
-        CaoModel cao1 = new CaoModel(Ong1, "Faísca", 2, "P", "Cão muito dócil e feliz");
+        CaoModel cao1 = new CaoModel(Ong1, "Faísca e Fagulha", 2, "P", "Cão muito dócil e feliz");
         CaoModel cao2 = new CaoModel(Ong1, "Juma", 1, "G", "Parece Onça de tão braba");
         CaoModel cao3 = new CaoModel(Ong2, "Beterraba", 1, "M", "Cão fedido que só");
+        CaoModel cao4 = new CaoModel(Ong2, "Espeto", 2, "P", "Cão brabo");
+        CaoModel cao5 = new CaoModel(Ong3, "Safira", 1, "G", "Cão aloprado");
+        CaoModel cao6 = new CaoModel(Ong2, "Jordan", 1, "M", "Cão muito pistola");
 
         caoRepository.save(cao1);
         caoRepository.save(cao2);
         caoRepository.save(cao3);
+        caoRepository.save(cao4);
+        caoRepository.save(cao5);
+        caoRepository.save(cao6);
 
         AnuncioCaoModel anuncioCao1 = new AnuncioCaoModel(cao1, false);
         AnuncioCaoModel anuncioCao2 = new AnuncioCaoModel(cao2, false);
         AnuncioCaoModel anuncioCao3 = new AnuncioCaoModel(cao3, false);
+        AnuncioCaoModel anuncioCao4 = new AnuncioCaoModel(cao4, false);
+        AnuncioCaoModel anuncioCao5 = new AnuncioCaoModel(cao5, false);
+        AnuncioCaoModel anuncioCao6 = new AnuncioCaoModel(cao6, false);
 
         anuncioCaoRepository.save(anuncioCao1);
         anuncioCaoRepository.save(anuncioCao2);
         anuncioCaoRepository.save(anuncioCao3);
+        anuncioCaoRepository.save(anuncioCao4);
+        anuncioCaoRepository.save(anuncioCao5);
+        anuncioCaoRepository.save(anuncioCao6);
 
         GestorModel gestor_1_1 = gestorRepository.findById("05046035076").get();
         gestor_1_1.setOngs(listaGestor1);

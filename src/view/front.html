@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exemplo 02 - consumindo via Javascript</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Exemplo 02 - consumindo via Javascript</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="resultado">
+	<style type="text/css">
+		body{
+			background-color: #d8a27a;
+		}
+		h2{
+			margin-top: 15px;
+		}
+		.dogbox{
+			background-color: #b46d26;
+			color:  #fff;
+			border: inset 5px #dc9956;
+		}
+	</style>
 
-</div>
-<div class="resultado">
-    <img />
-</div>
-<script type="text/javascript">
-           $.get( "http://localhost:8080/api/anuncios", function( data ) {
-           console.log(data);
-           $(".resultado").append(JSON.stringify(data));
-           });
-       </script>
-</body>
-</html>
+	<header>
+		<h2 class="text-center">Encontre seu maior companheiro aqui!</h2>
+	</header>
+	<div class="container">
+		<div class="row">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+			$.get( "http://localhost:8080/api/anuncios", function( data ) {
+			console.log(data);
+			let parsedJson = data;
+			let dogs = [];
+			for (let x in parsedJson){
+				dogs.push(parsedJson[x]);
+				$('.row').append('<div class="dogbox col-sm-12 col-md-4 my-4 p-3 text-center"><p><b>ONG: '+dogs[x].nomeOng+'</b></p><img class="img-fluid" src="./img/'+x+'.jpg"><h4 class="mt-2">Nome: '+dogs[x].nome+'</h4><p>Idade: '+dogs[x].idade+' anos</p><p>Porte: '+dogs[x].porte+'</p><p>Cidade: '+dogs[x].enderecoOng.cidade+'</p><p>Descrição do cachorro:<br>'+dogs[x].descricao+'</p></div>');
+				}
+			});
+			</script>
+		</body>
+	</html>
