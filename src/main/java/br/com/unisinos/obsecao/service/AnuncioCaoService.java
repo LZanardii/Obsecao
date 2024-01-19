@@ -23,7 +23,7 @@ public class AnuncioCaoService {
     CaoRepository caoRepository;
 
     public List<AnuncioCaoDto> getAllAnuncios(){
-        List<AnuncioCaoModel> anuncioCaoModelList = anuncioCaoRepository.findAll().stream().collect(Collectors.toList());
+        List<AnuncioCaoModel> anuncioCaoModelList = new ArrayList<>(anuncioCaoRepository.findAll());
 
         List<AnuncioCaoDto> anuncioCaoDtoList = new ArrayList<>();
 

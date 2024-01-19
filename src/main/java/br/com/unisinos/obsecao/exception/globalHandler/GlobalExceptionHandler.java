@@ -1,6 +1,7 @@
 package br.com.unisinos.obsecao.exception.globalHandler;
 
 
+import br.com.unisinos.obsecao.exception.CustomException;
 import br.com.unisinos.obsecao.exception.EmptyDataException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -48,5 +49,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         log.error(ex.getMessage());
         ErrorResponse errorResponse = new ErrorResponse("I_AM_A_TEAPOT", Collections.singletonList(ex.getMessage()));
         return new ResponseEntity<>(errorResponse, I_AM_A_TEAPOT);
+    }
+
+    @ExceptionHandler(CustomException.class)
+    public final ResponseEntity<ErrorResponse> customException(CustomException ex){
+        log.error(ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse("Uepa", Collections.singletonList(ex.getMessage()));
+        return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
 }
